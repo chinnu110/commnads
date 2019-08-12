@@ -1,0 +1,75 @@
+# hosts file for HobbyLobby.com
+[OSEv3:children]
+masters
+etcd
+nodes
+lb
+
+[OSEv3:vars]
+openshift_deployment_type=openshift-enterprise
+deployment_type=openshift-enterprise
+openshift_release=v3.11
+osm_cluster_network_cidr=10.128.0.0/14
+openshift_portal_net=172.30.0.0/16
+openshift_master_api_port=443
+openshift_master_console_port=8443
+openshift_master_cluster_public_hostname=sndoslb01.hobbylobby.corp
+openshift_master_cluster_hostname=sndoslb01.hobbylobby.corp
+openshift_master_default_subdomain=apps.hobbylobby.com
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/ etc/ origin/master/htpasswd'}] openshift_master_htpasswd_users={'admin': '$apr1$Y9pwjRCD$iqLLsX/vhUljsTxiYq9FY.', 'developer': '$apr1$AH9Loha.$GJNmEjjKjt/8LPET0lv751'}
+openshift_master_cluster_method=native
+
+#openshift_hosted_registry_storage_kind=nfs
+#openshift_hosted_registry_storage_access_modes=['ReadWriteMany']
+#openshift_hosted_registry_storage_nfs_directory=/exports
+#openshift_hosted_registry_storage_nfs_options='*(rw,root_squash)'
+#openshift_hosted_registry_storage_volume_name=registry
+#openshift_hosted_registry_storage_volume_size=10Gi
+openshift_docker_additional_registries=hlsatellite02.hobbylobby.corp:5000
+openshift_docker_insecure_registries=hlsatellite02.hobbylobby.corp:5000
+openshift_docker_blocked_registries=registry.access.redhat.com,docker.io
+
+
+openshift_router_selector='region=infra'
+openshift_registry_selector='region=infra'
+
+oreg_url=hlsatellite02.hobbylobby.corp:5000/openshift3/ose-${component}:${version}
+openshift_examples_modify_imagestreams=true
+
+openshift_disable_check=disk_availability,docker_storage,memory_availability,\ docker_image_availability
+ansible_ssh_user=root
+openshift_cockpit_deployer_prefix='openshift3/'
+
+#[nfs]
+#nfs.mycluster.com
+
+[lb]
+ sndoslb01.hobbylobby.corp containerized=false
+
+[etcd]
+ sndosmaster01.hobbylobby.corp
+ sndosmaster02.hobbylobby.corp
+ sndosmaster03.hobbylobby.corp
+
+[masters]
+ sndosmaster01.hobbylobby.corp openshift_ip=10.100.37.88 openshift_public_ip=10.100.37.88
+ sndosmaster02.hobbylobby.corp openshift_ip=10.100.37.89 openshift_public_ip=10.100.37.89
+ sndosmaster03.hobbylobby.corp openshift_ip=10.100.37.90 openshift_public_ip=10.100.37.90
+
+[nodes]
+ sndosmaster01.hobbylobby.corp openshift_node_labels="{'region': 'master'}"
+ openshift_schedulable=false openshift_ip=10.100.37.88 openshift_public_ip=10.100.37.88
+ sndosmaster02.hobbylobby.corp openshift_node_labels="{'region': 'master'}"
+ openshift_schedulable=false openshift_ip=10.100.37.89 openshift_public_ip=10.100.37.89
+ sndosmaster03.hobbylobby.corp openshift_node_labels="{'region': 'master'}"
+ openshift_schedulable=false openshift_ip=10.100.37.90 openshift_public_ip=10.100.37.90
+ sndosinfra01.hobbylobby.corp openshift_node_labels="{'region': 'infra'}"
+ openshift_ip=10.100.37.91 openshift_public_ip=10.100.37.91
+ sndosinfra02.hobbylobby.corp openshift_node_labels="{'region': 'infra'}"
+ openshift_ip=10.100.37.92 openshift_public_ip=10.100.37.92
+ sndosinfra03.hobbylobby.corp openshift_node_labels="{'region': 'infra'}"
+ openshift_ip=10.100.37.93 openshift_public_ip=10.100.37.93
+ sndospod01.hobbylobby.corp openshift_node_labels="{'region': 'primary', 'zone': 'local'}"
+ openshift_ip=10.100.37.95 openshift_public_ip=10.100.37.95
+ sndospod02.hobbylobby.corp openshift_node_labels="{'region': 'primary', 'zone': 'local'}"
+ openshift_ip=10.100.37.96 openshift_public_ip=10.100.37.96

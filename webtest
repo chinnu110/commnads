@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  annotations:
+    openshift.io/deployer-pod.completed-at: '2019-06-28 11:56:38 -0500 CDT'
+    openshift.io/deployer-pod.created-at: '2019-06-28 11:56:29 -0500 CDT'
+    openshift.io/deployer-pod.name: kumarwebtest-1-deploy
+    openshift.io/deployment-config.latest-version: '1'
+    openshift.io/deployment-config.name: kumarwebtest
+    openshift.io/deployment.phase: Complete
+    openshift.io/deployment.replicas: '1'
+    openshift.io/deployment.status-reason: config change
+    openshift.io/encoded-deployment-config: >
+      {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"kumarwebtest","namespace":"test","selfLink":"/apis/apps.openshift.io/v1/namespaces/test/deploymentconfigs/kumarwebtest","uid":"abda2280-99c5-11e9-b520-0050569adf8c","resourceVersion":"189751","generation":2,"creationTimestamp":"2019-06-28T16:56:28Z","labels":{"app":"kumarwebtest"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["kumarwebtest"],"from":{"kind":"ImageStreamTag","namespace":"openshift","name":"kumarweb:latest"},"lastTriggeredImage":"docker-registry.default.svc:5000/openshift/kumarweb@sha256:b41611669b4ea09b694acec3058632a76031b93da440ad48e648d164d147fa31"}}],"replicas":1,"test":false,"selector":{"app":"kumarwebtest","deploymentconfig":"kumarwebtest"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"kumarwebtest","deploymentconfig":"kumarwebtest"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"kumarwebtest","image":"docker-registry.default.svc:5000/openshift/kumarweb@sha256:b41611669b4ea09b694acec3058632a76031b93da440ad48e648d164d147fa31","ports":[{"containerPort":8080,"protocol":"TCP"},{"containerPort":8443,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config
+      change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2019-06-28T16:56:28Z","lastTransitionTime":"2019-06-28T16:56:28Z","message":"Deployment
+      config does not have minimum availability."}]}}
+  creationTimestamp: '2019-06-28T16:56:29Z'
+  generation: 2
+  labels:
+    app: kumarwebtest
+    openshift.io/deployment-config.name: kumarwebtest
+  name: kumarwebtest-1
+  namespace: magic
+  ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: kumarwebtest
+      uid: abda2280-99c5-11e9-b520-0050569adf8c
+  resourceVersion: '189813'
+  selfLink: /api/v1/namespaces/test/replicationcontrollers/kumarwebtest-1
+  uid: ac7e5f3c-99c5-11e9-b97d-0050569ae66f
+spec:
+  replicas: 1
+  selector:
+    app: kumarwebtest
+    deployment: kumarwebtest-1
+    deploymentconfig: kumarwebtest
+  template:
+    metadata:
+      annotations:
+        openshift.io/deployment-config.latest-version: '1'
+        openshift.io/deployment-config.name: kumarwebtest
+        openshift.io/deployment.name: kumarwebtest-1
+        openshift.io/generated-by: OpenShiftWebConsole
+      creationTimestamp: null
+      labels:
+        app: kumarwebtest
+        deployment: kumarwebtest-1
+        deploymentconfig: kumarwebtest
+    spec:
+      containers:
+        - image: >-
+            docker-registry.default.svc:5000/openshift/kumarweb@sha256:b41611669b4ea09b694acec3058632a76031b93da440ad48e648d164d147fa31
+          imagePullPolicy: Always
+          name: kumarwebtest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+            - containerPort: 8443
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 2
+  readyReplicas: 1
+  replicas: 1

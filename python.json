@@ -1,0 +1,31 @@
+{    
+    "kind": "ImageStream",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "python",
+        "annotations": {
+            "openshift.io/display-name": "HL Testing python"
+        }
+    },
+    "spec": {
+        "tags": [
+            {
+                "name": "latest",
+                "annotations": {
+                    "openshift.io/display-name": "python",
+                    "description": "Build and run Python applications on RHEL 7. For more information about using this builder image, including OpenShift considerations, see https://github.com/sclorg/s2i-python-container/blob/master/3.6/README.md.\n\nWARNING: By selecting this tag, your application will automatically update to use the latest version of Python available on OpenShift, including major versions updates.",
+                    "iconClass": "icon-python",
+                    "sampleRepo": "https://github.com/getwarped/sample-notebooks.git",
+                    "tags": "builder,python",
+                    "version": "latest"
+                },
+                "from": {
+                    "kind": "DockerImage",
+                    "name": "hlsatellite02.hobbylobby.corp:5000/openshift3/python-33-rhel7:latest"
+                }
+            }
+        ]
+    }
+}
+
+

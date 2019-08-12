@@ -1,0 +1,10 @@
+kind: "Template"
+apiVersion: "v1"
+metadata:
+  name: "python"
+  annotations:
+  openshift.io/display-name: "python"
+  description: "An example python application "
+  tags: "python"
+  iconClass: "icon-python"
+message: "Use python code to deploy" 

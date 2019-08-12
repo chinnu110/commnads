@@ -1,0 +1,219 @@
+    1  clear
+    2  vi /etc/sysconfig/selinux 
+    3  clear
+    4  vi /etc/sysconfig/selinux 
+    5  sestatus
+    6  setenforce 0
+    7  sestatus
+    8  clear
+    9  systemctl stop firewalld
+   10  systemctl disable firewalld
+   11  systemctl status firewalld
+   12  clear
+   13  subscription-manager register
+   14  subscription-manager list
+   15  subscription-manager list --available
+   16  clear
+   17  subscription-manager list --available | more
+   18  subscription-manager attach --pool=8a85f98153eb46650153ec8154446bcc
+   19  yum update -y
+   20  yum install opem-vm-tools
+   21  yum install opemvm-tools
+   22  yum open-vm-tools
+   23  yum install open-vm-tools
+   24  reboot
+   25  yum check-updates
+   26  clear
+   27  ifconfig
+   28  clear
+   29  df -h
+   30  ps -ef | grep vmtools
+   31  subscription-manager deregister
+   32  subscription-manager unregister
+   33  clear
+   34  yum check-updates
+   35  clear
+   36  sestatus
+   37  systemctl status firewalld
+   38  poweroff
+   39  ls
+   40  ifconfig
+   41  ping www.googl.com
+   42  clear
+   43  ifconfig
+   44  systemctl restart network
+   45  ifconfig
+   46  clear
+   47  systemctl status firewalld
+   48  clear
+   49  vi /etc/hosts
+   50  clear
+   51  hostnamectl status
+   52  hostnaem
+   53  hostname -f
+   54  hostname
+   55  hostnamectl set-hostname template
+   56  hostname
+   57  hostname -f
+   58  hostname
+   59  hostnamectl status
+   60  clear
+   61  less /etc/hosts
+   62  hostname
+   63  hostname -f
+   64  poweroff
+   65  rpm -Uvh http://hlsatellite02.hobbylobby.corp/pub/katello-ca-consumer-latest.noarch.rpm
+   66  subscription-manager remove --all
+   67  subscription-manager unregister
+   68  subscription-manager clean
+   69  subscription-manager register --org="HL" --activationkey="RHEL_DEV"
+   70  subscription-manager refresh
+   71  subscription-manager attach --auto
+   72  subscription-manager repos --enable rhel-7-server-optional-rpms --enable rhel-7-server-rh-common-rpms --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms --enable rhel-7-server-supplementary-rpms --enable rhel-7-server-satellite-tools-6.3-rpms
+   73  yum update
+   74  reboot
+   75  yum update
+   76  yum list installed
+   77  yum cleanup
+   78  yum clean
+   79  yum clean all
+   80  rm -rf /var/cache/yum
+   81  subscription-manager remove --all
+   82  subscription-manager unregister
+   83  subscription-manager clean
+   84  shutdown
+   85  cat /etc/yum.repos.d/
+   86  rpm -qa |grep katello
+   87  yum clean all
+   88  subscription-manager clean
+   89  rpm -ql katello-ca-consumer-hlsatellite02.hobbylobby.corp-1.0-1.noarch
+   90  subscription-manager regsiter --org=HL --activationkey=RHEL_DEV
+   91  subscription-manager register --org=HL --activationkey=RHEL_DEV
+   92  subscription-manager attach --auto
+   93  subscription-manager repos --enable rhel-7-server-optional-rpms --enable rhel-7-server-rh-common-rpms --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms --enable rhel-7-server-supplementary-rpms --enable rhel-7-server-satellite-tools-6.3-rpms
+   94  SATELLITE_HOST="hlsatellite02.hobbylobby.corp"
+   95  mkdir -p ~/.ssh
+   96  curl -s https://${SATELLITE_HOST}:9090/ssh/pubkey --insecure >> ~/.ssh/authorized_keys
+   97  chmod 700 ~/.ssh
+   98  chmod 600 ~/.ssh/authorized_keys
+   99  yum install perl
+  100  yum update
+  101  yum install sssd realmd oddjob oddjob-mkhomedir samba-common-tools nfs-utils cifs-utils
+  102  yum clean all
+  103  rm -rf /var/cache/yum/*
+  104  yum clean all
+  105  subscription-manager unregister
+  106  subscription-manager clean
+  107  reboot
+  108  shutdown
+  109  ifconfig
+  110  yum update all
+  111  passwd
+  112  exit
+  113  shutdown
+  114  vi rhel_configure.sh
+  115  chomd 700 rhel_configure.sh 
+  116* 
+  117  ./rhel_configure.sh --org HL --key RHEL_DEV
+  118  subscription-manager status
+  119  exit
+  120  vi rhel_configure.sh
+  121  cd /home
+  122  ls
+  123  vi rhel_configure.sh
+  124  pwd
+  125  cd..
+  126  cd ..
+  127  vi rhel_configure.sh
+  128  pwd
+  129  cd /home
+  130  cd ..
+  131* 
+  132  pwd
+  133  vi rhel_configure.sh
+  134  cat rhel_configure.sh 
+  135  vi rhel_configure.sh
+  136  echo >rhel_configure.sh 
+  137  cat rhel_configure.sh 
+  138  vi rhel_configure.sh
+  139  chomd 700 rhel_configure.sh 
+  140  chmod 700 rhel_configure.sh 
+  141  ./rhel_configure.sh --org HL --key RHEL_DEV
+  142  #./rhel_configure.sh --swap-disk /dev/sdb --app-disk /dev/sdc
+  143  #./rhel_configure.sh --ou Apps --sub-ou Store --ad-env Dev 
+  144  cat rhel_configure.sh 
+  145  curl --help
+  146  curl -s https://${SATELLITE_HOST}:9090/ssh/pubkey --insecure >> ~/.ssh/authorized_keys
+  147  ./rhel_configure.sh --org HL --key RHEL_DEV
+  148  curl -s https://$hlsatellite02.hobbylobby.corp:9090/ssh/pubkey --insecure >> ~/.ssh/authorized_keys
+  149  ./rhel_configure.sh --org HL --key RHEL_DEV
+  150  curl -s https://$hlsatellite02.hobbylobby.corp:9090/ssh/pubkey --insecure >> ~/.ssh/RHEL_DEV
+  151  ./rhel_configure.sh --org HL --key RHEL_DEV
+  152  ls -al ~/.ssh/id_*.pub
+  153  if [ ! -d "~/.ssh" ]; 
+  154  clear
+  155  SATELLITE_HOST="hlsatellite02.hobbylobby.corp"
+  156  curl -s https://${SATELLITE_HOST}:9090/ssh/pubkey
+  157  curl -s https://${SATELLITE_HOST}:9090/ssh/pubkey --insecure
+  158  ll
+  159  ls -l
+  160  ls -a
+  161* 
+  162  curl -s https://${SATELLITE_HOST}:9090/ssh/pubkey --insecure >> ~/.ssh/authorized_keys
+  163  ls -a
+  164  ls
+  165  echo authorized_keys
+  166  ls
+  167  ls -a
+  168  cd ssh
+  169  cd /.ssh
+  170  vi .ssh
+  171  man vi
+  172  vi .ssh
+  173  ls -a
+  174  ll -a
+  175  cd .ssh/
+  176  ll
+  177  cd..
+  178  cd ..
+  179  ls
+  180  pwd
+  181  ll -a
+  182  cd /
+  183  pwd
+  184  ll -a
+  185  ls
+  186  cd
+  187  pwd
+  188  cd /
+  189  cd ~
+  190  pwd
+  191  echo $~
+  192  echo $$~
+  193  ls
+  194  ll -a
+  195  cd .ssh/
+  196  ll
+  197  cat authorized_keys 
+  198  echo > authorized_keys 
+  199  cat authorized_keys 
+  200  cat authorized_keys cd
+  201  cd
+  202  curl -s https://${SATELLITE_HOST}:9090/ssh/pubkey --insecure >> ~/.ssh/authorized_keys
+  203  ls -a
+  204  ll -a
+  205  cd .ssh/
+  206  ls
+  207  cat authorized_keys 
+  208  cd ~
+  209  ./rhel_configure.sh --org HL --key RHEL_DEV
+  210  subscription-manager repos --enable rhel-7-server-optional-rpms --enable rhel-7-server-rh-common-rpms --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms --enable rhel-7-server-supplementary-rpms
+  211  able rhel-7-server-satellite-tools-6.3-rpms
+  212  subscription-manager repos --enable rhel-7-server-optional-rpms --enable rhel-7-server-rh-common-rpms --enable rhel-7-server-rpms --enable rhel-7-server-extras-rpms --enable rhel-7-server-supplementary-rpms
+  213  subscription-manager repos \ --enable rhel-7-server-satellite-tools-6.3-rpms
+  214  subscription-manager repos --enable rhel-7-server-satellite-tools-6.3-rpms
+  215  cd /home
+  216  ls
+  217  cd ~
+  218  history
+  219  history >> chinnu

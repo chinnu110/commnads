@@ -1,0 +1,162 @@
+# Create an OSEv3 group that contains the master, nodes, etcd, and lb groups.
+# The lb group lets Ansible configure HAProxy as the load balancing solution.
+# Comment lb out if your load balancer is pre-configured.
+[OSEv3:children]
+masters
+nodes
+etcd
+lb
+
+# Set variables common for all OSEv3 hosts
+[OSEv3:vars]
+#openshift_pkg_version=-3.9.14
+#openshift_image_tag=v3.9.14
+#openshift_cockpit_deployer_version=3.9.14
+#openshift_web_console_version=v3.9.14
+
+ansible_ssh_user=root
+openshift_deployment_type=openshift-enterprise
+
+# apply updated node defaults
+#openshift_node_kubelet_args={'pods-per-core': ['10'], 'max-pods': ['250'], 'image-gc-high-threshold': ['90'], 'image-gc-low-threshold': ['80']}
+
+# enable ntp on masters to ensure proper failover
+openshift_clock_enabled=true
+
+
+# HA Settings
+
+openshift_rolling_restart_mode=system
+openshift_master_cluster_method=native
+openshift_master_cluster_hostname=openshift-cluster.HobbyLobby.corp
+openshift_master_cluster_public_hostname=openshift-cluster.HobbyLobby.corp
+
+
+##### LDAP Configuration
+# LDAP auth
+#openshift_master_identity_providers=[{'name': 'HobbyCorp', 'challenge': 'true', 'login': 'true', 'kind': 'LDAPPasswordIdentityProvider', 'attributes': {'id': ['distinguishedName'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['sAMAccountName']}, 'bindDN': '', 'bindPassword': '', 'ca': '', 'insecure': 'false', 'url': 'ldap://HobbyLobby.corp:389/OU=Hobby Lobby,DC=HobbyLobby,DC=corp?sAMAccountName'}]
+# Configuring the ldap ca certificate
+#openshift_master_ldap_ca=<ca text>
+# or
+#openshift_master_ldap_ca_file=<path to local ca file to use>
+openshift_master_identity_providers=[{'name': 'HobbyCorp', 'challenge': 'true', 'login': 'true', 'kind': 'LDAPPasswordIdentityProvider', 'attributes': {'id': ['distinguishedName'], 'email': ['mail'], 'name': ['cn'], 'preferredUsername': ['sAMAccountName']}, 'bindDN': 'CN=svc_ldap_openshift,OU=ServiceAccounts,OU=Corporate,OU=Hobby Lobby,DC=HobbyLobby,DC=corp', 'bindPassword': 'nlyi&24#gjII*3Ec', 'ca': '', 'insecure': 'true', 'url': 'ldap://hldc01.HobbyLobby.corp:389/OU=Users,OU=Corporate,OU=Hobby Lobby,DC=HobbyLobby,DC=corp?sAMAccountName'},{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
+openshift_master_htpasswd_users={'cluster-admin':'$apr1$XRucgGlb$bwxbkpoVVJlkBtrSCtzGo0'}
+
+
+
+# HobbyCorp Custom Settings
+
+#openshift_docker_blocked_registries=all
+#openshift_docker_blocked_registries=registry.access.redhat.com,docker.io
+#openshift_docker_insecure_registries=hlsatellite01.hobbylobby.corp:5000
+#openshift_docker_additional_registries=hlsatellite01.hobbylobby.corp:5000
+
+#openshift_examples_modify_imagestreams=True
+
+#oreg_url=hl-redhat-openshift3_ose-${component}:${version}
+
+#openshift_logging_image_prefix=hl-redhat-openshift3_
+#openshift_metrics_image_prefix=hl-redhat-openshift3_
+#openshift_provisioners_image_prefix=hl-redhat-openshift3_
+#osm_etcd_image=hl-redhat-rhel7_etcd
+#openshift_cockpit_deployer_prefix=hl-redhat-openshift3_
+#openshift_web_console_prefix=hl-redhat-openshift3_
+#openshift_logging_eventrouter_image_prefix=hl-redhat-openshift3_
+
+#openshift_master_default_subdomain=osapps.HobbyLobby.corp
+#openshift_hosted_registry_routehost=openshift-registry.HobbyLobby.corp
+
+
+# Firewall configuration because the default is not suggested
+os_firewall_use_firewalld=True
+
+
+##### Need to configure persistent storage for registry #### Not NFS ####
+openshift_hosted_registry_storage_kind=nfs
+openshift_hosted_registry_storage_access_modes=['ReadWriteMany']
+openshift_hosted_registry_storage_host=hlisi01nfs.hobbylobby.corp
+openshift_hosted_registry_storage_nfs_directory=/OpenShift
+openshift_hosted_registry_storage_volume_name=pv-registry01
+openshift_hosted_registry_storage_volume_size=50Gi
+
+
+##### Need decission from network team
+osm_cluster_network_cidr=172.16.5.0/25
+openshift_portal_net=172.16.5.128/25
+osm_host_subnet_length=4
+
+#### Need to look at supplying custom certificates signed by internal CA
+#openshift_master_overwrite_named_certificates=true
+#openshift_master_named_certificates=[{"certfile": "/path/to/custom1.crt", "keyfile": "/path/to/custom1.key", "names": ["public-master-host.com"], "cafile": "/path/to/custom-ca1.crt"}]
+
+# Enable Cluster metrics
+openshift_metrics_install_metrics=true
+##### Need to setup persistent storage of cluster metrics
+#openshift_metrics_cassandra_storage_type=dynamic
+#openshift_master_metrics_public_url=https://openshift-metrics.hobbylobby.corp
+openshift_metrics_storage_kind=nfs
+openshift_metrics_storage_access_modes=['ReadWriteOnce']
+openshift_metrics_storage_host=hlisi01nfs.hobbylobby.corp
+openshift_metrics_storage_nfs_directory=/OpenShift
+openshift_metrics_storage_volume_name=pv-metrics01
+openshift_metrics_storage_volume_size=50Gi
+
+# Enable Cluster logging
+openshift_logging_install_logging=true
+##### Need to setup persistent storage of cluster logging
+#openshift_logging_es_pvc_dynamic=true
+#openshift_master_logging_public_url=https://openshift-logging.hobbylobby.corp
+openshift_logging_storage_kind=nfs
+openshift_logging_storage_access_modes=['ReadWriteOnce']
+openshift_logging_storage_host=hlisi01nfs.hobbylobby.corp
+openshift_logging_storage_nfs_directory=/OpenShift
+openshift_logging_storage_volume_name=pv-logging01
+openshift_logging_storage_volume_size=50Gi
+
+
+
+##### Neeed to setup PVs for Ansible Broker  ### Not NFS ? ###
+openshift_hosted_etcd_storage_kind=nfs
+openshift_hosted_etcd_storage_nfs_directory=/OpenShift
+openshift_hosted_etcd_storage_volume_name=pv-absetcd01
+openshift_hosted_etcd_storage_access_modes=["ReadWriteOnce"]
+openshift_hosted_etcd_storage_volume_size=10G
+openshift_hosted_etcd_storage_host=hlisi01nfs.hobbylobby.corp
+
+
+
+##### Need to configure whitelist at a later date
+ansible_service_broker_local_registry_whitelist=['.*-apb$']
+
+##### Need project for ansible template service broker
+openshift_template_service_broker_namespaces=['openshift','myproject']
+
+
+# Security
+openshift_web_console_inactivity_timeout_minutes=30
+
+# host group for masters
+[masters]
+pocosmaster01.HobbyLobby.corp
+pocosmaster02.HobbyLobby.corp
+pocosmaster03.HobbyLobby.corp
+
+# host group for etcd
+[etcd]
+pocosinfra01.HobbyLobby.corp
+pocosinfra02.HobbyLobby.corp
+pocosinfra03.HobbyLobby.corp
+
+# Specify load balancer host
+[lb]
+pocoslb01.HobbyLobby.corp
+
+# host group for nodes, includes region info
+[nodes]
+pocosmaster01.HobbyLobby.corp
+pocosmaster02.HobbyLobby.corp
+pocosmaster03.HobbyLobby.corp
+pocospod01.HobbyLobby.corp openshift_node_labels="{'region': 'infra'}"
+pocospod02.HobbyLobby.corp openshift_node_labels="{'region': 'primary'}"
+
+#### Need to look into labelling for region for production

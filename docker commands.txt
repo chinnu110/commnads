@@ -1,0 +1,68 @@
+  oc create identity HobbyCorp:rerober1 rerober1
+  oc create identity HobbyCorp:rerober1
+  oc create useridentitymapping HobbyCorp:rerober1 rerober1
+  oc create user rerober1
+
+  oc create useridentitymapping HobbyCorp:rerober1 rerober1
+  oc describe user rerober1
+scp /etc/origin/master/master-config.yaml sndosmaster03:/etc/origin/master/master-config.yaml
+find /usr|grep ldap-cleanup
+
+
+openshift_master_cluster_hostname=console.mycluster.example.com
+
+openshift_master_cluster_public_hostname=console.mycluster.com
+openshift_master_cluster_hostname=console.mycluster.com
+openshift_master_default_subdomain=apps.mycluster.com
+
+openshift_master_cluster_method=native
+
+
+hlsatellite02.hobbylobby.corp:5000/hl-redhat-rhscl_php-71-rhel7
+
+docker-registry.default.svc:5000/openshift/php
+
+docker-registry-default.router.default.svc.cluster.local
+
+
+
+  610  oc project
+  611  oc projects
+  612  oc project osmagic - openshiftmagic
+  613  oc whoami
+  614  oc project osmagic
+  615  oc get routes
+  616  docker pull hlsatellite02.hobbylobby.corp:5000/hl-redhat-rhscl_php-71-rhel7
+  617  docker images
+  618  docker save -o php.tar e93efce92f09
+  619  ls
+  620  oc whoami -t
+  621  oc whoami
+  622  oc login -unavneeth.uttoorwar -p
+  623  oc login -unavneeth.uttoorwar
+  624  oc whoami
+  625  oc whoami -t
+  626  docker images
+  627  oc get is -n
+  628  oc get is -n openshift
+  629  clear
+  630  docker images
+  631  docker tag e93efce92f09
+  632  docker tag e93efce92f09 docker-registry.default.svc:5000/openshift/php:7.1
+  633  docker images
+  634  oc get svc
+  635  oc project defaultoc whoami
+
+  636  oc get pods
+  637  oc get svc
+  638  docker login -u admin -p #
+  639  oc whoami -t
+  640  docker login -u admin -p
+  641  docker login -u admin -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4
+  642  docker push docker-registry.default.svc:5000/openshift/php:7.1
+  643  docker login -u navneeth.uttoorwar -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4
+  644  docker push docker-registry.default.svc:5000/openshift/php:7.1
+  645  docker login -u navneeth.uttoorwar -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 172.16.5.145:5000
+  646  oc get route
+  647  docker login -u navneeth.uttoorwar -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 docker-registry-default.router.default.svc.cluster.local
+  648  docker login -u admin -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 docker-registry-default.router.default.svc.cluster.local

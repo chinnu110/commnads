@@ -1,0 +1,995 @@
+1  grep -rnw / -e " router.default.svc.cluster.local "
+2  grep -rnw /etc/ -e " router.default.svc.cluster.local "
+3  grep -rnw /etc/ -e "router.default.svc.cluster.local"
+4  grep -rnw /usr/ -e "router.default.svc.cluster.local"
+5  cd /usr/share/ansible/openshift-ansible/roles/openshift_facts/defaults/
+6  pwd
+7  ls
+8  cat main.yml
+9  pwd
+10  cat main.yml /usr/share/ansible/openshift-ansible/roles/openshift_facts/defaults/ grep router.default.svc.cluster.local
+11  cat main.yml | grep router.default.svc.cluster.local
+12  grep --help
+13  grep -rnw /usr/ -e "router.default.svc.cluster.local"
+14  grep -r /usr/ -e "router.default.svc.cluster.local"
+15  whoami
+16  oc get pods
+17  docker images
+18  oc cluster status
+19  ansible --version
+20  oc cluster up
+21  oc version
+22  oc get cm console-config -n openshift-console -o yaml
+23  oc logs
+24  oc projects
+25  oc test-os project
+26  oc test-os
+27  oc project test-os
+28  ls
+29  oc get pods
+30  oc project default
+31  oc get pods
+32  oc get pods -n openshift-console
+33  clear
+34  oc cluster up
+35  systemctl is-enabled docker
+36  systemctl is-active docker
+37  docker login registry.redhat.io
+38  clear
+39  oc adm diagnostics
+40  oc get pods
+41  oc get events
+42  docker ps
+43  docker images
+44  oc cluster status
+45  oc cluster up
+46  oc status
+47  oc status --suggest
+48  oc whoami
+49  docker images
+50  oc whoami
+51  oc login
+52  oc whoami -t
+53  docker login -u admin -p 4DR9-oV5gnDqNJ01oXwaw95uKMwmTrzp-2hNEXNN1Tw docker-registry-default.router.default.svc.cluster.local
+54  history
+55  oc extract -n default secrets/registry-certificates --keys=registry.crt
+56  docker login -u admin -p 4DR9-oV5gnDqNJ01oXwaw95uKMwmTrzp-2hNEXNN1Tw docker-registry.default.svc:5000/openshift/php
+57  oc get is -n
+58  oc get is -n openshift
+59  docker images
+60  docker login -u admin -p 4DR9-oV5gnDqNJ01oXwaw95uKMwmTrzp-2hNEXNN1Tw docker-registry.default.svc:5000
+61  docker push docker-registry.default.svc:5000/openshift/php:7.1
+62  oc project test-os
+63  oc get pods
+64  oc new-app php:7.1 https://github.com/drnic/php-helloworld.git
+65  oc get pods
+66  oc get pods -o wide
+67  curl http://172.16.5.76
+68  oc get svc
+69  curl http://172.16.5.76:8080
+70  curl http://172.16.5.168:8080
+71  oc get svc
+72  oc expose svc
+73  oc get route
+74  oc expose svc/helloworldtest
+75  oc delete route helloworldtest
+76  oc expose svc/helloworldtest
+77  oc get route
+78  oc delete route helloworldtest
+79  oc expose svc/helloworldtest --hostname=hellotest.apps-snd.hobbylobby.corp
+80  oc get route
+81  curl http://hellotest.apps-snd.hobbylobby.corp
+82  cd /etc/origin/master/
+83  ls
+84  vi master-config.yaml
+85  cat master-config.yaml | grep *sub*
+86  cat master-config.yaml | grep sub
+87  cp master-config.yaml master-config.yaml.bkp06032019
+88  vi master-config.yaml
+89  pwd
+90  scp master-config.yaml sndosmaster02:/etc/origin/master/
+91  scp master-config.yaml sndosmaster03:/etc/origin/master/
+92  master-restart api; master-restart controllers
+93  oc whoami -t
+94  cd ~
+95  oc whoami
+96  docker pull hlsatellite02.hobbylobby.corp:5000/hl-redhat-rhmap46_httpd
+97  docker images
+98  docker images --no-trunc
+99  docker save -o httpd.tar e2a629be7487650a6a8066d8d77fcd16a013749bfeaa620185a6ddb85220f24b
+100  ls
+101  oc get is -n openshift
+102  docker images
+103  docker tag e2a629be7487 docker-registry.default.svc:5000/openshift/httpd
+104  docker images
+105  oc get svc
+106  oc whoami -t
+107  docker push docker-registry.default.svc:5000/openshift/httpd:latest
+108  docker images
+109  oc get svc
+110  curl http://http://
+111  curl http://172.16.5.147:8080
+112  oc expose
+113  oc expose svc
+114  oc expose svc/httpd-examples
+115  oc get routes
+116  oc get pods
+117  oc get projects
+118  grep -nw /usr/ -e "router.default.svc.cluster.local"
+119  grep -rnw /usr/ -e "router.default.svc.cluster.local"
+120  grep -rnw /usr/ -e "apps-snd.hobbylobby.corp"
+121  grep -rnw /etc/ -e "apps-snd.hobbylobby.corp"
+122  oc expose svc/test1-test-os
+123  oc whoami
+124  oc project
+125  oc project test1
+126  oc project
+127  oc project test
+128  oc project test-os
+129  oc expose svc/test1
+130  oc get routes
+131  oc get routes
+132  oc expose --help
+133  oc expose --help | grep -i "external\|public"
+134  oc expose svc/test1 --type=ExternalName --hostname="test1.apps-snd.hobbylobby.corp"
+135  oc expose svc/test1 --hostname=test1.apps-snd.hobbylobby.corp
+136  oc delete route test1
+137  oc expose svc/test1 --hostname=test1.apps-snd.hobbylobby.corp
+138  docker images
+139  oc get routes
+140  vi /etc/origin/master/master-config.yaml
+141  cat /opt/openshift/active_directory_whitelist
+142  vi /etc/origin/master/master-config.yaml
+143  scp /etc/origin/master/master-config.yaml sndosmaster03:/etc/origin/master/
+144  scp /etc/origin/master/master-config.yaml sndosmaster02:/etc/origin/master/
+145  master-restart api; master-restart controllers
+146  vi /etc/origin/master/master-config.yaml
+147  scp /etc/origin/master/master-config.yaml sndosmaster02:/etc/origin/master/
+148  scp /etc/origin/master/master-config.yaml sndosmaster03:/etc/origin/master/
+149  master-restart api; master-restart controllers
+150  vi /etc/origin/master/master-config.yaml
+151  scp /etc/origin/master/master-config.yaml sndosmaster02:/etc/origin/master/
+152  scp /etc/origin/master/master-config.yaml sndosmaster03:/etc/origin/master/
+153  master-restart api; master-restart controllers
+154  vi /etc/origin/master/master-config.yaml
+155  scp /etc/origin/master/master-config.yaml sndosmaster02:/etc/origin/master/
+156  scp /etc/origin/master/master-config.yaml sndosmaster03:/etc/origin/master/
+157  master-restart api; master-restart controllers
+158  tail -f /var/lib/origin/audit-ocp.log
+159  grep ldaps /var/lib/origin/audit-ocp.log
+160  grep ldap /var/lib/origin/audit-ocp.log
+161  master-logs api api 2>&1|grep ldap
+162  master-logs api api 2>&1|grep ldaps
+163  host hptdc03.HobbyLobby.corp
+164  tcpdump -i ens192 host 10.100.1.79
+165  tcpdump -n -nn -i ens192 host 10.100.1.79
+166  vi /etc/origin/master/master-config.yaml
+167  tcpdump -n -nn -i ens192 host 10.100.1.79
+168  vi /etc/origin/master/master-config.yaml
+169  ssh sndospod01
+170  exit
+171  oc whoami
+172  oc get pods
+173  docker images
+174  oc get projects
+175  co project test-os
+176  co project test
+177  oc get whoami
+178  oc whoami
+179  oc project
+180  oc get projects
+181  oc get svc
+182  oc delete hello
+183  oc get route
+184  oc delete route hello
+185  oc get route
+186  oc delete route hlworld
+187  oc get route
+188  oc get pods
+189  oc whoami -t
+190  docker login -u admin -p 4DR9-oV5gnDqNJ01oXwaw95uKMwmTrzp-2hNEXNN1Tw docker-registry.default.svc:5000
+191  oc whoami -t
+192  oc login
+193  oc whoami -t
+194  oc logout
+195  oc get pods
+196  oc whoami
+197  oc project default
+198  oc get pods
+199  oc get project
+200  oc whoami
+201  oc login -usystem:admin
+202  oc get pods
+203  docker images
+204  docker pull hlsatellite02.hobbylobby.corp:5000/hl-redhat-rhscl_perl-526-rhel7
+205  docker images
+206  docker save -o perl.tar 48a943c38beb
+207  ls
+208  oc whoami -t
+209  oc whoami
+210  oc login
+211  oc whoami -t
+212  oc get is -n openshift
+213  docker images
+214  docker tag 48a943c38beb docker-registry.default.svc:5000/openshift/perl:5.26
+215  docker images
+216  docker push hlsatellite02.hobbylobby.corp:5000/hl-redhat-rhscl_perl-526-rhel7
+217  docker push docker-registry.default.svc:5000/openshift/perl:5.26
+218  oc get is -n openshift | grep apache
+219  oc get is -n openshift | grep -i apache
+220  oc get is -n openshift
+221  docker images
+222  docker tag e2a629be7487 docker-registry.default.svc:5000/openshift/httpd:2.4
+223  oc whoami
+224  docker push docker-registry.default.svc:5000/openshift/httpd:2.4
+225  oc whoami -t
+226  docker login -u navneeth.uttoorwar -p VsoCOJiLNuhcxt7EpJFeXGPAAEpz_nMGmAEWiGyqNQE docker-registry.default.svc:5000
+227  docker push docker-registry.default.svc:5000/openshift/httpd:2.4
+228  oc get is -n openshift | grep -i http server
+229  oc get is -n openshift | grep -i apache
+230  git clone https://github.com/Azure-Samples/html-docs-hello-world.git
+231  remove
+232  ll
+233  rm -rf html-docs-hello-world/
+234  git clone https://github.com/Azure-Samples/html-docs-hello-world.git
+235  ll
+236  rm -rf html-docs-hello-world/
+237  ll
+238  ls
+239  cat httpd.tar
+240  clear
+241  ls
+242  oc get is -n openshift | grep -i apache
+243  oc get is -n openshift
+244  oc get build
+245  oc build-logs apachetest1-1
+246  docker images | grep httpd
+247  oc get pods
+248  oc get svc
+249  oc project
+250  oc get routes
+251  cd /etc/
+252  ls
+253  find -name container
+254  cd ./selinux/targeted/active/modules/100/container
+255  ls
+256  cat cil
+257  ls
+258  cat hll
+259  ls
+260  cat lang_ext
+261  cd ~
+262  ls
+263  find -name containerconfig
+264  su - _rer418593
+265  id _rer418593
+266  id rerober1
+267  ssh sndosmaster02
+268  ssh sndosmaster03
+269  exit
+270  cd /etc/passwd
+271  cd /etc/
+272  find -passwd
+273  ls
+274  find -name pass
+275  find -name passwd
+276  cd ~
+277  oc get projects
+278  oc project
+279  oc get pods
+280  oc delete pod apache-test-1-build
+281  oc get pods
+282  oc delete pod apache-test2-1-build
+283  oc get pods
+284  oc whoami
+285  oc login
+286  oc login -u system:admin
+287  oc get pods
+288  oc delete pod apache-test2-1-build
+289  oc get pods
+290  w
+291  oc get pods
+292  oc delete pod apache-test2-build
+293  oc delete pod apache-test-2-build
+294  oc delete pod apache-test3-1-build
+295  oc get pods
+296  oc delete pod httptest51-1-build
+297  oc get pods
+298  docker images
+299  docker push hlsatellite02.hobbylobby.corp:5000/hl-redhat-openshift3_jenkins-2-rhel7
+300  history | grep docker pull
+301  clear
+302  docker pull hlsatellite02.hobbylobby.corp:5000/hl-redhat-rhscl_httpd-24-rhel7
+303  docker image
+304  docker images
+305  docker rmi e2a629be7487
+306  docker rmi -f e2a629be7487
+307  docker images
+308  docker tag 0f1cb8c3c29b docker-registry.default.svc:5000/openshift/httpd:2.4
+309  docker images
+310  oc whoami -t
+311  oc login -u navneeth.uttoorwar -p
+312  oc login -u navneeth.uttoorwar -p Akshaya27
+313  oc whoami -t
+314  docker login -u navneeth.uttoorwar -p Ffm1qlkCoN-SCxAGjRD-X6vxEPsyUEo8hOYnKiCzFkw docker-registry.default.svc:5000
+315  docker push docker-registry.default.svc:5000/openshift/httpd:2.4
+316  docker images
+317  docker tag 900e3e7fe0b1 docker-registry.default.svc:5000/openshift/jenkins:latest
+318  docker push docker-registry.default.svc:5000/openshift/jenkins:latest
+319  oc get is -n openshift | grep jenkins
+320  docker tag 900e3e7fe0b1 docker-registry.default.svc:5000/openshift/jenkins:2
+321  docker push docker-registry.default.svc:5000/openshift/jenkins:2
+322  oc projects
+323  oc new -app jenkins:2 --name=testjenkins
+324  oc new-app jenkins:2 --name=testjenkins
+325  oc get pods
+326  oc get svc
+327  oc get pods
+328  oc get route
+329  history
+330  cd /var/log/
+331  ls
+332  grep sssd messages
+333  grep sssd messages|head
+334  grep sssd messages-20190602|head
+335  grep sssd messages-20190529|head
+336  grep sssd messages-20190529|less
+337  man sssd(8)
+338  man sssd.8
+339  man sssd-8
+340  man sssd8
+341  man sssd
+342  ps -ef|grep sssd
+343  kill -s USR2 6035
+344  grep sssd messages
+345  systemctl restart sssd
+346  grep sssd messages
+347  ls
+348  cd sssd
+349  ls
+350  ls -al
+351  less ldap_child.log
+352  less ldap_child.log-20190
+353  less ldap_child.log-20190602
+354  cd ..
+355  grep sssd messages-20190529|less
+356  cd
+357  ls
+358  history|grep rhel
+359  ./rhel_configure.sh --ou Development
+360  realm leave
+361  ./rhel_configure.sh --ou Development
+362  exit
+363  docker volume ls
+364  docker volume ls -a
+365  docker volume ls a
+366  docker volume ls
+367  docker volume ls --help
+368  cd /var/lib/docker
+369  ls
+370  cd volumes/
+371  ls
+372  cat metadata.db
+373  ls
+374  oc get images
+375  oc get images | jenkins
+376  oc project
+377  oc project openshift
+378  oc get images | jenkins
+379  oc get images
+380  oc get image ls
+381  oc get images
+382  docker image ls
+383  docker image ls | jenkins
+384  oc get images | grep jenkins
+385  oc project test-os
+386  oc get images | grep jenkins
+387  docker --help
+388  docker --help | grep registry
+389  docker search nginx
+390  docker search centos
+391  docker image ls
+392  docker search 5000/openshift/httpd
+393  docker search openshift/httpd
+394  docker search httpd
+395  docker search docker-registry.default.svc:5000/openshift/httpd
+396  docker status
+397  systemctl status docker
+398  cat /etc/sysconfig/docker-registry
+399  cat /etc/sysconfig/
+400  cd /etc/sysconfig/
+401  ls
+402  ll
+403  cat docker
+404  cd /etc/docker/
+405  ls
+406  cat daemon.json
+407  cd /etc/containers/
+408  ls
+409  cd registries.d/
+410  ls
+411  cd ..
+412  cat registries.
+413  cat registries.y
+414  cat registries.conf
+415  ls
+416  cat registries.conf
+417  cat /etc/sysconfig/docker
+418  systemctl restart docker
+419  tail history
+420  history tail
+421  history tail -10
+422  history tail 10
+423  history | tail
+424  cd /etc/
+425  ls
+426  cat exports
+427  cd exports/
+428  cd /exports
+429  cd ~
+430  cat /opt/openshift/inventory
+431  showmount -e hlisi01nfs.hobbylobby.corp
+432  cat /opt/openshift/inventory |grep nfs
+433  mount
+434  mount | grep SND_Openshift
+435  mount | grep 5d4c0146-8962-11e9-abbe-0050569ae66f
+436  cd /var/lib/origin/openshift.local.volumes/pods/
+437  ls
+438  showmount -e hlisi01nfs.hobbylobby.corp
+439  mkdir /mnt/tmp
+440  mount hlisi01nfs.hobbylobby.corp:/SND_Openshift/pv-registry01 /mnt/tmp
+441  mount hlisi01nfs.hobbylobby.corp:/SND_Openshift /mnt/tmp
+442  cd /mnt/tmp
+443  ls
+444  mount | grep SND_Openshift
+445  umount /mnt/tmp
+446  cd ..
+447  umount /mnt/tmp
+448  cat /opt/openshift/inventory
+449  cd /mnt/
+450  ll
+451  cd app01/
+452  ll
+453  df -Pkh
+454  cd /etc/origin/
+455  ls
+456  cd master/
+457  ls
+458  cat master-config.yaml
+459  less master-config.yaml
+460  cd ~
+461  vi /opt/openshift/inventory
+462  ansible-playbook -i /opt/openshift/inventory /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+463  ansible-playbook -i /opt/openshift/inventory /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml
+464  oc get pv
+465  oc login -u navneeth.uttoorwar
+466  oc get pv
+467  oc get pod
+468  oc descbribe dc/docker-registry
+469  oc describe dc/docker-registry
+470  oc get dc
+471  oc project
+472  oc project default
+473  oc get dc
+474  oc get pvc
+475  oc get dc
+476  oc get pv
+477  oc describe dc/docker-registry
+478  oc project
+479  oc get pods
+480  oc delete pod docker-registry-2-deploy
+481  oc delete pod docker-registry-3-deploy
+482  oc delete pod docker-registry-4-deploy
+483  oc delete pod docker-registry-5-deploy
+484  oc delete pod docker-registry-*-deploy
+485  oc get pods
+486  oc delete pod docker-registry-7-deploy
+487  oc get pods
+488  oc delete pod docker-registry-6-deploy
+489  oc delete pod docker-registry-6-4v9pw
+490  oc project
+491  oc get pods
+492  docker images
+493  cd /usr/lib/
+494  ls
+495  cd ~
+496  oc get projects
+497  oc project
+498  oc project test-os
+499  oc get projects
+500  oc project
+501  oc get pods
+502  oc get pvc
+503  oc get pvc jenkins-persistent-storage
+504  oc get pvc jenkins-persistent-storage -o
+505  oc get pvc jenkins-persistent-storage -o yaml
+506  oc get pv
+507  oc get pvc
+508  oc get po
+509  oc get pods
+510  oc get dc
+511  oc whoami
+512  oc project
+513  oc project default
+514  oc get dc
+515  less /etc/origin/master/master-config.yaml
+516  oc get pv
+517  cat /opt/openshift/inventory
+518  less /etc/origin/master/master-config.yaml
+519  vi /etc/origin/master/master-config.yaml
+520  scp /etc/origin/master/master-config.yaml sndosmaster03:/etc/origin/master/
+521  scp /etc/origin/master/master-config.yaml sndosmaster02:/etc/origin/master/
+522  master-restart api; master-restart controllers
+523  oc get pv
+524  vi /etc/origin/master/master-config.yaml
+525  scp /etc/origin/master/master-config.yaml sndosmaster02:/etc/origin/master/
+526  scp /etc/origin/master/master-config.yaml sndosmaster03:/etc/origin/master/
+527  master-restart api; master-restart controllers
+528  vi /etc/origin/master/master-config.yaml
+529  master-restart controllers
+530  tail /var/lib/origin/audit-ocp.log
+531  master-logs api api 2>&1|
+532  master-logs api api 2>&1
+533  master-restart controllers
+534  master-restart api; master-restart controllers
+535  vim nfs-pv.yaml
+536  vi nfs-pv.yaml
+537  oc create -f nfs-pv.yaml
+538  oc get pv
+539  exit
+540  oc get pv
+541  oc delete pv pv0001
+542  oc get pv
+543  oc get project
+544  whoami
+545  exit
+546  systemctl status realmd
+547  cat /etc/hostname
+548  host sndelliott01
+549  host sndelliott01.hobbylobby.corp
+550  top
+551  host sndelliott01.hobbylobby.corp
+552  cat /etc/sssd/sssd.conf
+553  ssh sndosmaster01 "cat /etc/sssd/sssd.conf"
+554  ssh sndosmaster02 "cat /etc/sssd/sssd.conf"
+555  ssh sndosmaster03 "cat /etc/sssd/sssd.conf"
+556  ssh sndosmaster01 "cat /etc/sssd/sssd.conf"
+557  host sndosmaster01
+558  id _rer418593
+559  realm discover hobbylobby.corp
+560  ./rhel_configure.sh --ou=Development
+561  realm discover hobbylobby.corp
+562  host sndelliott01.hobbylobby.corp
+563  ip addr
+564  host sndelliott01.hobbylobby.corp
+565  exit
+566  ping 10.100.37.88
+567  oc get users
+568  ls
+569  oc get users
+570  oc login -u navneeth.uttoorwar
+571  oc login -usystem:admin
+572  ping sndoscluster.hobbylobby.corp
+573  oc whoami
+574  oc help
+575  oc get pods
+576  ping sndoscluster.hobbylobby.corp
+577  oc get pv
+578  oc get pods
+579  ping sndoscluster.hobbylobby.corp
+580  oc whaomi
+581  oc whoami
+582  oc login
+583  oc login -usystem:admin
+584  oc whoami
+585  oc get svc
+586  ping sndoscluster.hobbylobby.corp
+587  oc whoami
+588  oc get sv
+589  oc get svc
+590  oc get pv
+591  oc whoami
+592  oc login -usystem:admin
+593  oc get pv
+594  oc pet pods
+595  oc get pods
+596  oc login
+597  oc whoami -t
+598  d
+599   docker login -u navneeth.uttoorwar -p due7Alapls0Pv58U0oSkKOUTjkXD0YWgoV_SfM5vQGw docker-registry.default.svc:5000
+600  docker images
+601  docker tag 900e3e7fe0b1 docker-registry.default.svc:5000/openshift/jenkins:2
+602  docker push docker-registry.default.svc:5000/openshift/jenkins:2
+603  oc projects
+604  oc get routes
+605  oc get pods
+606  oc get svc
+607  oc projects
+608  oc project test-os
+609  oc get projects
+610  oc get pv
+611  oc get is -n openshift
+612  docker images
+613  docker images | jenkins
+614  docker images |grep jenkins
+615  docker pull hlsatellite02.hobbylobby.corp:5000/hl-redhat-openshift3_jenkins-2-rhel7
+616  oc get pvc
+617  oc get pods
+618  oc project default
+619  oc get pods
+620  oc get pv
+621  oc project test-os
+622  oc get pv
+623  oc get pods
+624  oc get pods | grep jenkins
+625  oc get pods | grep docker
+626  oc get pv
+627  less history
+628  less | grep history
+629  oc get pods
+630  oc get svc
+631  oc get pv
+632  oc get pvc
+633  oc delete pv/pv0001
+634  oc get pv
+635  oc get pvc
+636  oc delete pvc jenkinsstorage
+637  oc delete pv/pv0001
+638  oc get pv
+639  oc get pvc
+640  oc get pv
+641  docker images
+642  showmount -e sndosmaster01
+643  showmount -e 10.100.37.88
+644  ip a
+645  oc whoami
+646  oc projects
+647  oc get projects
+648  oc get pods
+649  cd /opt/openshift/
+650  ls
+651  cat inventory
+652  cd ~
+653  oc get pv
+654  ls
+655  cd /nfs-pv.yaml
+656  cat nfs-pv.yaml
+657  vi nfs-pv.yaml
+658  cat nfs-pv.yaml
+659  oc get pv
+660  oc get pvc
+661  ls
+662  docker images
+663  oc get pods
+664  ls
+665  oc get pods
+666  oc get bc
+667  oc get dc
+668  oc projects
+669  oc describe serviceaccount jenkins
+670  oc new-app jenkins-persistent
+671  oc get pods
+672  cd /var/lib/
+673  ls
+674  mkdir jenkins
+675  ls
+676  cd jenkins/
+677  ls
+678  oc whoami -t
+679  docker login -u navneeth.uttoorwar -p due7Alapls0Pv58U0oSkKOUTjkXD0YWgoV_SfM5vQGw docker-registry.default.svc:5000
+680  docker images
+681  docker push docker-registry.default.svc:5000/openshift/jenkins:2
+682  docker images
+683  docker rmi 900e3e7fe0b1
+684  docker rmi -f 900e3e7fe0b1
+685  docker rmi 900e3e7fe0b1
+686  docker images
+687  docker pull hlsatellite02.hobbylobby.corp:5000/hl-redhat-openshift3_jenkins-2-rhel7
+688  docker images
+689  docker tag 900e3e7fe0b1 docker-registry.default.svc:5000/openshift/jenkins:2
+690  docker push 900e3e7fe0b1 docker-registry.default.svc:5000/openshift/jenkins:2
+691  docker push docker-registry.default.svc:5000/openshift/jenkins:2
+692  docker images
+693  oc get is -n openshift | grep jenkins
+694  oc delete jenkins is -n openshift
+695  oc delete openshift/jenkins:latest
+696  oc delete istag/jenkins:latest
+697  oc get pods
+698  oc project default
+699  oc get pods
+700  oc get pv
+701  oc get pvc
+702  ls
+703  cd ~
+704  ls
+705  cat nfs-pv.yaml
+706  cat /opt/openshift/inventory
+707  ls
+708  oc delete pv pv0001
+709  oc get pv
+710  oc delete pv/pv0001
+711  oc get pv
+712  oc project dtest-os
+713  oc project test-os
+714  oc new-app jenkins:2 --name=xyz
+715  oc get pods
+716  oc get dc
+717  docker images
+718  docker tag 900e3e7fe0b1 docker-registry.default.svc:5000/openshift/jenkins:latest
+719  docker push docker-registry.default.svc:5000/openshift/jenkins:latest
+720  oc projects
+721  oc get dc
+722  oc delete dc xyz
+723  oc get dc
+724  oc get pods
+725  docker images | grep jenkins
+726  docker tags
+727  oc get dc
+728  oc get bc
+729  oc whoami
+730  oc login
+731  oc get dc
+732  oc delete dc jenkins
+733  oc get bc
+734  oc get pv
+735  oc delete pv/pv0001
+736  oc get pv
+737  oc get project
+738  oc status
+739  oc get pods
+740  oc describe pod jenkind23-1-cgtbs | grep -A 2 volume
+741  oc describe pod jenkins23-1-cgtbs | grep -A 2 volume
+742  oc get dc
+743  ls
+744  cat nfs-pv.yaml
+745  rm nfs-pv.yaml
+746  ls
+747  cat registry.crt
+748  oc get pods
+749  oc delete pod hello-1-build
+750  oc delete pod test1-1-build
+751  oc get pods
+752  docker images
+753  oc describe serviceaccount jenkins
+754  cd /var/lib/jenkins/
+755  ls
+756  cd ~
+757  history | grep pull
+758  oc get pv
+759  oc get pvc
+760  oc describe pv-registry01-claim
+761  oc describe pv pv-registry01-claim
+762  oc describe dc pv-registry01-claim
+763  oc describe pvc pv-registry01-claim
+764  oc get projects
+765  oc use default
+766  oc project default
+767  oc get pods
+768  oc describe pod docker-registry-6-p6tq6
+769  exit
+770  oc get pods
+771  oc project
+772  docker images
+773  oc rmi 900e3e7fe0b1
+774  oc rme 900e3e7fe0b1
+775  docker rmi 900e3e7fe0b1
+776  docker rmi -f 900e3e7fe0b1
+777  docker images
+778  docker pods
+779  docker pod
+780  oc get pod
+781  oc project default
+782  oc get pods
+783  oc delete pod docker-registry-7-deploy
+784  oc get pods
+785  oc project test-os
+786  oc whoami
+787  oc projects
+788  oc get pvc
+789  oc project default
+790  oc get pvc
+791  oc get pods
+792  cd /var/lib/jenkins/
+793  ls
+794  oc project default
+795  oc get pods
+796  oc delete pod docker-registry-6-4tpgz
+797  oc get pods
+798  docker images
+799  docker rmi $(docker ps -a)
+800  cd ~
+801  docker image purne
+802  docker image prune
+803  docker images
+804  docker images -a | awk '{print$3}' | xargs docker rmi
+805  docker images
+806  docker pull hlsatellite02.hobbylobby.corp:5000/hl-redhat-openshift3_jenkins-2-rhel7
+807  docker images
+808  docker tag 900e3e7fe0b1 docker-registry.default.svc:5000/openshift/jenkins:2
+809  oc whoami -t
+810  oc whoami
+811  docker login -u navneeth.uttoorwar -p tdjFWQBn-WE65wzd_WiCow3fXnCjcJsMnkMYTQ-l2Zs docker-registry.default.svc:5000
+812  docker push docker-registry.default.svc:5000/openshift/jenkins:2
+813  oc get pods
+814  oc project test-os
+815  oc get pods
+816  oc get dc
+817  oc get pods
+818  oc get dc
+819  oc get is -n openshift | grep jenkins
+820  docker tag 900e3e7fe0b1 docker-registry.default.svc:5000/openshift/jenkins
+821  docker push docker-registry.default.svc:5000/openshift/jenkins
+822  oc get pods
+823  #oc new-app --docker-image=hlsatellite02.hobbylobby.corp:5000/hl-redhat-openshift3_jenkins-2-rhel7
+824  oc project default
+825  oc get pods
+826  oc project test-os
+827  oc get pods
+828  oc delete pod jenkins5-1-deploy
+829  oc delete pod jenkins5-2-deploy
+830  oc get pods
+831  oc egt dc
+832  oc get dc
+833  oc get pv
+834  oc project default
+835  oc get pods
+836  ls
+837  cat registry.crt
+838  ls
+839  oc get pods
+840  oc logs dc/docker-registry
+841  oc logs dc/docker-registry-6-p6tq6
+842  oc get dc
+843  oc logs dc/docker-registry
+844  oc describe pod docker-registry
+845  oc get pv
+846  oc whoami
+847  oc login
+848  cd /var/lib/jenkins/
+849  ls
+850  oc describe serviceaccount jenkins
+851  oc project default
+852  oc gey pods
+853  oc get pods
+854  oc get users
+855  exit
+856  oc get users
+857  oc get pv
+858  oc get pvc
+859  oc whoami
+860  oc login -u system:admin
+861  oc get pvc
+862  oc get pv
+863  mount hlisi01nfs.hobbylobby.corp:/SND_Openshift /mnt
+864  ls /mnt
+865  showmount -e hlisi01nfs.hobbylobby.corp
+866  mkdir /mnt/pv-registry01
+867  ls -al
+868  cd /mnt
+869  ls
+870  ls -la
+871  mkdir pvc_jenkins5
+872  ls -al
+873  mv pvc_jenkins5 pv_jenkins5
+874  sl -al
+875  ls -al
+876  ls -al pv_jenkins5/
+877  showmount -a hlisi01nfs.hobbylobby.corp
+878  showmount -a hlisi01nfs.hobbylobby.corp|grep SND
+879  showmount -a hlisi01nfs.hobbylobby.corp|grep 88
+880  df -h
+881  top
+882  cat /proc/meminfo
+883  umount /mnt
+884  cd
+885  umount /mnt
+886  oc get pv
+887  cat /opt/openshift/inventory
+888  exit
+889  tail /var/log/messages
+890  more /var/log/messages
+891  tail /var/log/messages
+892  tail /var/log/messages | grep 255
+893  less /etc/origin/master/master-config.yaml
+894  less /etc/origin/master/master-config.yaml.bkp06142019
+895  mount hlisi01nfs.hobbylobby.corp:/SND_Openshift /mnt
+896  cd /mnt
+897  ls -al
+898  exit
+899  oc get users
+900  cd /etc/origin/master/
+901  ls
+902  vi master-config.yaml
+903  cp master-config.yaml master-config.yaml.bkp06142019
+904  vi master-config.yaml
+905  hostname -i
+906  for i in 88 89 90 : do scp master-config.yaml 10.100.37.${i}:/etc/origin/master/; done
+907  for i in 88 89 90 ; do scp master-config.yaml 10.100.37.${i}:/etc/origin/master/; done
+908  master-api restart
+909  restart master-api
+910  master-api-restart
+911  master-restart api && master-restart controllers
+912  docjer images
+913  docker images
+914  oc expose service test1-php
+915  oc project
+916  oc project test-os
+917  oc expose service test1-php
+918  oc get routes
+919  vi master-config.yaml
+920  systemctl restart
+921  master-restart api
+922  vi master-config.yaml
+923  master-restart api && master-restart controllers
+924  vi master-config.yaml
+925  for i in 88 89 90 ; do scp master-config.yaml 10.100.37.${i}:/etc/origin/master/; done
+926  master-restart api && master-restart controllers
+927  vi master-config.yaml
+928  docker images
+929  oc whoami -t
+930  oc login
+931  docker push docker-registry.default.svc:5000/openshift/php:7.1
+932  docker push docker-registry.default.svc:5000
+933  oc whoami -t
+934  docker login -u navneeth.uttoorwar -p 4F8p9aSyjztIN9M--xX9wuQ3BAby_22fpiEz4Y5ZMZg docker-registry.default.svc:5000
+935  docker pull hlsatellite02.hobbylobby.corp:5000/hl-redhat-rhscl_php-71-rhel7
+936  docker images
+937    docker tag e93efce92f09 docker-registry.default.svc:5000/openshift/php:latest
+938  docker push docker-registry.default.svc:5000/openshift/php:latest
+939  docker images
+940  oc get is -n openshift | grep php
+941    docker tag e93efce92f09 docker-registry.default.svc:5000/openshift/php
+942  docker push docker-registry.default.svc:5000/openshift/php
+943  ls
+944  vi master-config.yaml
+945  for i in 88 89 90 ; do scp master-config.yaml 10.100.37.${i}:/etc/origin/master/; done
+946  master-restart api && master-restart controllers
+947  vi master-config.yaml
+948  for i in 88 89 90 ; do scp master-config.yaml 10.100.37.${i}:/etc/origin/master/; done
+949  master-restart api && master-restart controllers
+950  exit
+951  rpm -qa|grep ansib
+952  cat /opt/openshift/inventory
+953  vi /opt/openshift/inventory
+954  cat /opt/openshift/inventory
+955  vi /opt/openshift/inventory
+956  cat /opt/openshift/inventory
+957  vi /opt/openshift/inventory
+958  cat /opt/openshift/inventory
+959  vi /opt/openshift/inventory
+960  ansible-playbook -i /opt/openshift/inventory /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+961  vi /opt/openshift/inventory
+962  ansible-playbook -i /opt/openshift/inventory /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+963  vi /opt/openshift/inventory
+964  ansible-playbook -i /opt/openshift/inventory /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+965  ansible-playbook -i /opt/openshift/inventory /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml
+966  netstat -lntpe
+967  vi /opt/openshift/inventory
+968  ansible-playbook -i /opt/openshift/inventory /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+969  ansible-playbook -i /opt/openshift/inventory /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml
+970  docker ps -a
+971  docker logs -f --tail 10  k8s_api_master-api-sndosmaster01_kube-system_e81fc217cf212f456e5dcd41d8cc59d1_9
+972  docker logs -f --tail 10  849e841b9552
+973  vi /opt/openshift/inventory
+974  ansible-playbook -i /opt/openshift/inventory /usr/share/ansible/openshift-ansible/playbooks/prerequisites.yml
+975  ansible-playbook -i /opt/openshift/inventory /usr/share/ansible/openshift-ansible/playbooks/deploy_cluster.yml
+976  systemctl status atomic-openshift-node
+977  cat /var/lib/origin/openshift.local.volumes/
+978  cat /var/lib/origin/
+979  cd /var/lib/origin/
+980  ls
+981  cd openshift.local.volumes/
+982  ls
+983  cd /etc/cni/
+984  ls
+985  cd net.d/
+986  ls
+987  cat 80-openshift-network.conf
+988  oc get pods
+989  netstat -lntpe
+990  exit
+991  /var/log/messages
+992  cd /var/log/messages
+993  less /var/log/messages
+994  grep -i cni config /var/log/messages
+995  history

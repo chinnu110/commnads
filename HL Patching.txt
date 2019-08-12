@@ -1,0 +1,39 @@
+
+***Dev Auto Patching***
+lifecycle_environment ^(DEV QA) AND NOT (host_collection=Manual_Stage_Patching)
+
+***Dev Manual Patching and reboot***
+lifecycle_environment ^(DEV QA) and host_collection=Manual_Stage_Patching
+
+***Dev Auto Reboot***
+lifecycle_environment ^(DEV QA) AND NOT (host_collection=Manual_Reboot) AND NOT (host_collection=Manual_Stage_Patching) AND NOT (host_collection="SAP Apps") AND NOT (host_collection= App_Ower_Reboot)
+/sbin/shutdown -r +1
+
+***Dev Manual Reboots***
+lifecycle_environment ^(DEV QA) and host_collection ^(Manual_Reboot "SAP Apps")
+
+
+
+***Prod Auto Patching***
+lifecycle_environment ^(PERF PROD) AND NOT (host_collection=Manual_Stage_Patching) AND NOT (host_collection= "SAP Apps") 
+
+***Prod Manual Patching and Reboot***
+lifecycle_environment ^(PERF PROD) and host_collection=Manual_Stage_Patching
+
+***Prod Auto Reboot***
+lifecycle_environment ^(PERF PROD) AND NOT (host_collection=Manual_Reboot) AND NOT (host_collection=Manual_Stage_Patching) AND NOT (host_collection= "SAP Apps") AND NOT (host_collection= App_Ower_Reboot)
+/sbin/shutdown -r +1
+
+***Prod Manaul Reboots***
+lifecycle_environment ^(PREF PROD) host_collection ^(Manual_Reboot "SAP Apps")
+
+***Prod Notify App Owners to Reboot***
+lifecycle_environment ^(PREF PROD) and host_collection=App_Ower_Reboot
+
+
+***To fix ssh errors***reb
+mkdir -p ~/.ssh
+SATELLITE_HOST="hlsatellite02.hobbylobby.corp"
+curl -s https://${SATELLITE_HOST}:9090/ssh/pubkey --insecure >> ~/.ssh/authorized_keys
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys

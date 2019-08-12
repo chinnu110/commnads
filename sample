@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css">
+  <title>Hobby Lobby</title>
+  <style media="screen">
+    #div1{
+    border-style: outset;
+    float:right;
+    background-color: #3933FF;
+    color:blue;
+    height:580px;
+    width:1220px;
+  }
+  </style>
+  </head>
+  <body bgcolor=#F35050>
+    <ul>
+          

@@ -1,0 +1,269 @@
+docker-registry.default.svc:5000/openshift/httpd
+
+
+4DR9-oV5gnDqNJ01oXwaw95uKMwmTrzp-2hNEXNN1Tw
+
+
+docker push docker-registry.default.svc:5000/openshift/php:7.1
+
+
+
+
+
+
+  701  oc get routes
+  702  docker pull hlsatellite02.hobbylobby.corp:5000/hl-redhat-rhscl_php-71-rhel7
+  703  docker images
+  704  docker save -o php.tar e93efce92f09
+  705  ls
+  706  oc whoami -t
+  707  oc whoami
+  708  oc login -unavneeth.uttoorwar -p
+  709  oc login -unavneeth.uttoorwar
+  710  oc whoami
+  711  oc whoami -t                                                        VsoCOJiLNuhcxt7EpJFeXGPAAEpz_nMGmAEWiGyqNQE
+  712  docker images                                                         docker-registry.default.svc:5000/openshift/perl
+  713  oc get is -n                                                             48a943c38beb
+  714  oc get is -n openshift
+  715  clear
+  716  docker images
+  717  docker tag e93efce92f09
+  718  docker tag e93efce92f09 docker-registry.default.svc:5000/openshift/php:7.1
+  719  docker images
+  720  oc get svc
+  721  oc project default
+  722  oc get pods
+  723  oc get svc
+  724  docker login -u admin -p #
+  725  oc whoami -t
+  726  docker login -u admin -p
+  727  docker login -u admin -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4
+  728  docker push docker-registry.default.svc:5000/openshift/php:7.1
+  729  docker login -u navneeth.uttoorwar -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4
+  730  docker push docker-registry.default.svc:5000/openshift/php:7.1
+  731  docker login -u navneeth.uttoorwar -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 172.16.5.145:5000
+  732  oc get route
+  733  docker login -u navneeth.uttoorwar -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 docker-registry-default.router.default.svc.cluster.local
+  734  docker login -u admin -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 docker-registry-default.router.default.svc.cluster.local
+  735  history
+  736  docker login -u admin -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 docker-registry-default.router.default.svc.cluster.local
+  737  openssl verify -CAfile /etc/origin/master/ca.crt /etc/origin/master/master.server.crt
+  738  openssl verify -CAfile /etc/origin/master/ca-bundle.crt /etc/origin/master/master.server.crt
+  739  oc status
+  740  oc extract -n default secrets/registry-certificates --keys=registry.crt
+  741  cd /etc/rhsm/ca/
+  742  ls
+  743  cd
+  744  ls
+  745  for i in 88 89 90 91 92 93 94 95 96 ; do scp registry.crt 10.100.37.${i}:/etc/rhsm/ca/ ;done
+  746  cd /etc/docker/certs.d/
+  747  ls
+  748  cd docker-registry.default.svc\:5000/
+  749  ls
+  750  pd
+  751  pwd
+  752  ls
+  753  ln -s /etc/rhsm/ca/registry.crt redhat-ca.crt
+  754  ls
+  755  ll
+  756  pwd
+  757  ll
+  758  ln -s /etc/rhsm/ca/registry.crt /etc/docker/certs.d/docker-registry.default.svc:5000redhat-ca.crt
+  759  ll
+  760  docker login -u admin -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 docker-registry-default.router.default.svc.cluster.local
+  761  docker login -u navneeth.uttoorwar -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 docker-registry-default.router.default.svc.cluster.local
+  762  docker login -u navneeth.uttoorwar -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 172.16.5.145:5000
+  763  docker login -u admin -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 docker-registry-default.router.default.svc:5000redhat-ca.crt
+  764  docker login -u admin -p 6ZYrbcNWknqbKHQBM1sIQT9N_sGgzrgt_8LdYrUB4c4 docker-registry.default.svc:5000/openshift/php
+  765  docker images
+  766  oc get images
+  767  ls
+  768  oc describe dc/testosmagic
+  769  oc describe dc/osmagic
+  770  oc describe dc osmagic
+  771  oc describe
+  772  oc describe dc
+  773  w
+  774  vi /etc/origin/master/adv-audit.yaml
+  775  cp /etc/origin/master/adv-audit.yaml /opt/openshift/
+  776  less /etc/origin/master/master-config.yaml
+  777  grep -i debug /etc/origin/master/master-config.yaml
+  778  grep -ri debug /etc/origin/
+  779  oc login -u rerober1
+  780  oc logout
+  781  oc login -u rerober1
+  782  oc login -u system:admin
+  783  oc login -u rerober1
+  784  oc logout
+  785  oc login -u system:admin
+  786  cd /opt/openshift/
+  787  rpm -qa|grep -i HOB
+  788  exit
+  789  oc get is -n openshift
+  790  oc whoami
+  791  oc login -u navneeth.uttoorwar -p
+  792  oc login -u navneeth.uttoorwar
+  793  oc whoami
+  794  oc logout
+  795  whoami
+  796  oc whoami
+  797  oc login -u system:admin
+  798  oc whoami
+  799  oc get route
+  800  oc get pods
+  801  oc get projects
+  802  oc get svc
+  803  oc get route
+  804  oc project osmagic
+  805  docker login -u navneeth.uttoorwar
+  806  docker logout
+  807  docker login -u navneeth.uttoorwar -p
+  808  oc projects
+  809  oc get pods
+  810  oc whoami
+  811  oc project default
+  812  oc get pods
+  813  oc get routes
+  814  ls
+  815   oc projects
+  816  oc status
+  817  oc whoami
+  818  oc login -umanoj.nallagopu
+  819  oc new-app --docker-image=hlsatellite02.hobbylobby.corp:5000/hl-redhat-redhat-openjdk-18_openjdk18-openshift https://github.com/hlmanoj/openshift-project-examples-spring.git
+  820  oc status
+  821  oc expose svc/openshift-project-examples-spring --hostname=openshift-project-examples-spring.apps-snd.hobbylobby.corp
+  822  oc project
+  823  whoami
+  824  oc get pods
+  825  docker images
+  826  oc cluster status
+  827  ansible --version
+  828  oc cluster up
+  829  oc version
+  830  oc get cm console-config -n openshift-console -o yaml
+  831  oc logs
+  832  oc projects
+  833  oc test-os project
+  834  oc test-os
+  835  oc project test-os
+  836  ls
+  837  oc get pods
+  838  oc project default
+  839  oc get pods
+  840  oc get pods -n openshift-console
+  841  clear
+  842  oc cluster up
+  843  systemctl is-enabled docker
+  844  systemctl is-active docker
+  845  docker login registry.redhat.io
+  846  clear
+  847  oc adm diagnostics
+  848  oc get pods
+  849  oc get events
+  850  docker ps
+  851  docker images
+  852  oc cluster status
+  853  oc cluster up
+  854  oc status
+  855  oc status --suggest
+  856  oc whoami
+  857  docker images
+  858  oc whoami
+  859  oc login
+  860  oc whoami -t
+  861  docker login -u admin -p 4DR9-oV5gnDqNJ01oXwaw95uKMwmTrzp-2hNEXNN1Tw docker-registry-default.router.default.svc.cluster.local
+  862  history
+
+
+
+
+
+
+
+
+
+docker-registry.default.svc:5000/openshift/httpd:2.4
+docker push hlsatellite02.hobbylobby.corp:5000/hl-redhat-openshift3_jenkins-2-rhel7
+ 1027  history | grep docker pull
+ 1028  clear
+  docker pull hlsatellite02.hobbylobby.corp:5000/hl-redhat-rhscl_httpd-24-rhel7
+  docker image
+  docker images
+  docker rmi e2a629be7487
+  docker rmi -f e2a629be7487
+  docker images
+  docker tag 0f1cb8c3c29b docker-registry.default.svc:5000/openshift/httpd:2.4
+  docker images
+  oc whoami -t
+  oc login -u navneeth.uttoorwar -p
+  oc login -u navneeth.uttoorwar -p xxxxxxx
+  oc whoami -t
+  docker login -u navneeth.uttoorwar -p Ffm1qlkCoN-SCxAGjRD-X6vxEPsyUEo8hOYnKiCzFkw docker-registry.default.svc:5000
+  docker push docker-registry.default.svc:5000/openshift/httpd:2.4
+  docker images
+  docker tag 900e3e7fe0b1 docker-registry.default.svc:5000/openshift/jenkins:latest
+  docker push docker-registry.default.svc:5000/openshift/jenkins:latest
+  oc get is -n openshift | grep jenkins
+  docker tag 900e3e7fe0b1 docker-registry.default.svc:5000/openshift/jenkins:2
+  docker push docker-registry.default.svc:5000/openshift/jenkins:2
+  oc projects
+  oc new -app jenkins:2 --name=testjenkins
+  oc new-app jenkins:2 --name=testjenkins
+  oc get pods
+  oc get svc
+  oc get pods
+  oc get route
+
+
+due7Alapls0Pv58U0oSkKOUTjkXD0YWgoV_SfM5vQGw
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
